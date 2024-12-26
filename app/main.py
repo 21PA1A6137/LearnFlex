@@ -18,6 +18,7 @@ load_dotenv()
 
 # os.environ["LANGCHAIN_TRACING_V2"] = "true"
 # os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+groq_api_key="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"
 
 st.set_page_config(page_title="LearnFlex: Personalized Learning Assistant", layout="wide")
 
@@ -48,7 +49,7 @@ def save_chat_history():
     """Save chat history with a summary-based filename."""
     if st.session_state.history:
         if st.session_state.session_key == "new_session":
-            llm = ChatGroq(api_key=os.getenv("GROQ_API_KEY"), model_name="llama-3.1-70b-versatile", temperature=0.7)
+            llm = ChatGroq(api_key=groq_api_key, model_name="llama-3.1-70b-versatile", temperature=0.7)
             summary = generate_summary(st.session_state.history, llm)
             filename = summary
             st.session_state.new_session_key = filename
@@ -121,7 +122,6 @@ def main():
     
     
     chat_history = StreamlitChatMessageHistory(key="history")
-    groq_api_key="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"
     # groq_api_key = os.getenv("GROQ_API_KEY")
     if not groq_api_key:
         st.error("Error: GROQ_API_KEY is missing. Please add it to your .env file.")
