@@ -226,7 +226,7 @@ def main():
                 st.error("No conversation history available to convert!")
         else:
             try:
-                chat_index = int(chat_number) - 1  # Convert to 0-based index
+                chat_index = int(chat_number) -1  # Convert to 0-based index
                 if 0 <= chat_index < len(st.session_state.history):
                     selected_chat = st.session_state.history[chat_index]
                     full_text = f"Question: {selected_chat.content} " 

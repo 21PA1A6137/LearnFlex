@@ -5,11 +5,7 @@ def generate_explanation(topic, difficulty, llm, subject):
     """
     Generate an explanation based on the topic and difficulty level.
     """
-    prompt = PromptTemplate(
-        input_variables=["topic", "difficulty"],
-        template="Explain the topic '{topic}' for a {difficulty} audience."
-    )
-    
+
     
     if difficulty.lower() == "easy":
         prompt = PromptTemplate(

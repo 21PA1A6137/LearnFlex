@@ -6,19 +6,16 @@ import io
 # # Initialize pyttsx3 TTS engine
 def text_to_speech_pyttsx3(text):
     engine = pyttsx3.init()
-    engine.setProperty('rate', 150)  # Adjust speed of speech
-    engine.setProperty('volume', 0.9)  # Adjust volume
+    engine.setProperty('rate', 150)  
+    engine.setProperty('volume', 0.9)
 
-    # Select a voice (optional)
     voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[0].id)  # Use the first voice
+    engine.setProperty('voice', voices[0].id)
     text_with_pause = text.replace('Answer:', 'Answer: . . . ') 
-    # Save audio to a file-like object
     audio_file = BytesIO()
     engine.save_to_file(text, "output.mp3")
     engine.runAndWait()
 
-    # Read the saved file into memory
     with open("output.mp3", "rb") as file:
         audio_file.write(file.read())
     audio_file.seek(0)
