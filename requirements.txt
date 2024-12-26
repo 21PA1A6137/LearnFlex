@@ -1,0 +1,13 @@
+langchain
+streamlit
+langchain_groq
+python-dotenv
+langchain_community
+langchain_core
+torch
+transformers
+librosa
+streamlit_mic_recorder
+chromadb
+fpdf
+pyttsx3
