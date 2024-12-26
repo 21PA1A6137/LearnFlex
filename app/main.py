@@ -121,8 +121,8 @@ def main():
     
     
     chat_history = StreamlitChatMessageHistory(key="history")
-    
-    groq_api_key = os.getenv("GROQ_API_KEY")
+    groq_api_key="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"
+    # groq_api_key = os.getenv("GROQ_API_KEY")
     if not groq_api_key:
         st.error("Error: GROQ_API_KEY is missing. Please add it to your .env file.")
         return
