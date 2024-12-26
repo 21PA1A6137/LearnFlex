@@ -6,7 +6,7 @@ from langchain.llms import CTransformers
 from utils.prompt_templates import memory_prompt_template
 from langchain.vectorstores import Chroma
 from langchain_groq import ChatGroq
-import chromadb
+# import chromadb
 import yaml
 import os
 from dotenv import load_dotenv
