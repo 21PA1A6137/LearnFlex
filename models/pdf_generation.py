@@ -91,10 +91,11 @@ def generate_pdf(history, subject, unit_number, faculty_name, pdf_name, summary)
     font_path_bold = os.path.join(os.path.dirname(__file__), 'dejavu-fonts-ttf-2.37', 'ttf', 'DejaVuSans-Bold.ttf')
     font_path_italic = os.path.join(os.path.dirname(__file__), 'dejavu-fonts-ttf-2.37', 'ttf', 'DejaVuSans-Oblique.ttf')
     # Add fonts
-    pdf.add_font("DejaVu", "", font_path, uni=True)  # Regular
-    pdf.add_font("DejaVu", "B", font_path_bold, uni=True)  # Bold
-    pdf.add_font("DejaVu", "I",font_path_italic, uni=True)
-
+    pdf.add_font("DejaVu", "","/workspaces/LearnFlex/models/dejavu-fonts-ttf-2.37/ttf/DejaVuSans.ttf" , uni=True)  # Regular
+    pdf.add_font("DejaVu", "B", "/workspaces/LearnFlex/models/dejavu-fonts-ttf-2.37/ttf/DejaVuSans-Bold.ttf", uni=True)  # Bold
+    pdf.add_font("DejaVu", "I","/workspaces/LearnFlex/models/dejavu-fonts-ttf-2.37/ttf/DejaVuSans-Oblique.ttf", uni=True)
+# /workspaces/LearnFlex/models/dejavu-fonts-ttf-2.37/ttf/DejaVuSans-Bold.ttf
+# models/dejavu-fonts-ttf-2.37/ttf/DejaVuSans.ttf
     # Add Table of Contents
     toc = [message.content[:50] + "..." for message in history if isinstance(message, HumanMessage)]
     pdf.add_toc(toc)
