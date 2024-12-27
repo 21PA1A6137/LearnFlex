@@ -222,6 +222,7 @@ def generate_pdf(history, subject, unit_number, faculty_name, pdf_name, summary)
     pdf.unit_number = unit_number or "1"
     pdf.faculty_name = faculty_name or "Unknown Faculty"
 
+
     # Add Table of Contents
     toc = [message.content[:50] + "..." for message in history if isinstance(message, HumanMessage)]
     pdf.add_toc(toc)
