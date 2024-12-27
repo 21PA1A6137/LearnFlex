@@ -4,7 +4,7 @@ from datetime import datetime
 import streamlit as st
 import re
 import time
-
+import os
 
 class CustomPDF(FPDF):
     def footer(self):
@@ -87,10 +87,13 @@ def generate_pdf(history, subject, unit_number, faculty_name, pdf_name, summary)
     pdf.unit_number = unit_number or "1"
     pdf.faculty_name = faculty_name or "Unknown Faculty"
 
+    font_path = os.path.join(os.path.dirname(__file__), 'dejavu-fonts-ttf-2.37', 'ttf', 'DejaVuSans.ttf')
+    font_path_bold = os.path.join(os.path.dirname(__file__), 'dejavu-fonts-ttf-2.37', 'ttf', 'DejaVuSans-Bold.ttf')
+    font_path_italic = os.path.join(os.path.dirname(__file__), 'dejavu-fonts-ttf-2.37', 'ttf', 'DejaVuSans-Oblique.ttf')
     # Add fonts
-    pdf.add_font("DejaVu", "", "models\\dejavu-fonts-ttf-2.37\\ttf\\DejaVuSans.ttf", uni=True)  # Regular
-    pdf.add_font("DejaVu", "B", "models\\dejavu-fonts-ttf-2.37\\ttf\\DejaVuSans-Bold.ttf", uni=True)  # Bold
-    pdf.add_font("DejaVu", "I", "models\\dejavu-fonts-ttf-2.37\\ttf\\DejaVuSans-Oblique.ttf", uni=True)
+    pdf.add_font("DejaVu", "", font_path, uni=True)  # Regular
+    pdf.add_font("DejaVu", "B", font_path_bold, uni=True)  # Bold
+    pdf.add_font("DejaVu", "I",font_path_italic, uni=True)
 
     # Add Table of Contents
     toc = [message.content[:50] + "..." for message in history if isinstance(message, HumanMessage)]
