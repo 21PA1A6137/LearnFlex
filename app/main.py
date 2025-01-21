@@ -18,7 +18,7 @@ load_dotenv()
 
 # os.environ["LANGCHAIN_TRACING_V2"] = "true"
 # os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
-groq_api_key="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"
+groq_api_key=os.getenv('GROQ_API_KEY')
 
 st.set_page_config(page_title="LearnFlex: Personalized Learning Assistant", layout="wide")
 
